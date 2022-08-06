@@ -1,0 +1,96 @@
+{% extends 'guestbase.html' %}
+{% block body %}
+{% load static %}
+<div class="clearfix"> </div>
+			<!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$(" ul.nav").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		</div>
+	</div>
+	<!-- men -->
+	<form method="POST">
+		{% csrf_token %} 
+	<div class="men">
+		<!-- container -->
+		<div class="container">
+			<div class="col-md-9 fashions">
+				<div class="title">
+					
+				</div>
+				<div class="fashion-section">
+					<div class="fashion-grid1">
+
+							{% for d in data %}
+						 <div class="col-md-3 fashion-grid">
+
+
+							 <a href="{{d.7}}"><img src="../{{d.7}}" alt="hello" style="height: 100%;width: 100%;"/>
+								 <div class="product">
+									 <h3>{{d.3}}</h3>
+									 <p><span></span> {{d.4}} ₹</p>								 
+								 </div>							 
+							 </a>
+							 <div class="fashion-view"><span></span>
+										<div class="clearfix"></div>
+									 <h4><a href="/CustomerViewProDetails/?id={{d.0}}">Quick View</a></h4>
+							 </div>
+						 </div>
+						{% endfor %}
+						 
+						 
+						 <div class="clearfix"></div>
+					</div>
+					<div class="fashion-grid2">
+						
+						
+						
+						
+						<div class="clearfix"></div>
+					</div>
+					<div class="fashion-grid2">
+						
+						
+						
+						
+						<div class="clearfix"></div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 side-bar">
+				<div class="categories">
+					<h3>CATEGORIES</h3>
+					{% for d1 in data1 %}
+					<ul>
+						
+						<li><a href="/CustomerViewProCategory/?id={{d1.0}}">{{d1.1}}</a></li>
+						
+					</ul>
+					{% endfor %}
+				</div>
+				
+					<div class="categories">
+							<h3>Brands</h3>
+							{% for d2 in data2 %}
+							<ul>
+								<li><a href="/CustomerViewProSubCategory/?id={{d2.0}}">{{d2.1}}</a></li>
+								
+							</ul>
+							{% endfor %}
+						</div>
+					   
+						 
+					 </div>
+				</div>
+			</div>
+
+			<div class="clearfix"> </div>
+		</div>
+		<!-- //container -->
+	</div>
+	<!-- //men -->
+	
+	{% endblock %}

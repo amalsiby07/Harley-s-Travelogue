@@ -1,0 +1,23 @@
+{% extends 'Admin Page.html' %}
+{% block body %}
+<form action="#" method="post" >
+{% csrf_token %}
+<div class="row" >
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"><b>Feedback ID</b></div>
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"><b>Name</b></div>
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"><b>Phone</b></div>
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"><b>Email</b></div>
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"><b>Message</b></div>
+    <div class="col-md-2" style="border-style: solid;background-color:#0273dd;color: white;"></div>
+</div>
+{% for d in data %}
+<div class='row' >
+    <div class='col-md-2' style='border-style: solid;'>{{d.0}}</div>
+    <div class='col-md-2' style='border-style: solid;'>{{d.1}}</div>
+    <div class='col-md-2' style='border-style: solid;'>{{d.2}}</div>
+    <div class='col-md-2' style='border-style: solid;'>{{d.3}}</div>
+    <div class='col-md-2' style='border-style: solid;'>{{d.4}}</div>
+    <div class='col-md-2' style='border-style: solid;'><a href="/AdminViewFeedback/?id={{d.0}}">Delete</a></div>
+</div>
+{% endfor %}
+{% endblock %}
